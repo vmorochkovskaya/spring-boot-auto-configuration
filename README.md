@@ -17,7 +17,7 @@ To get started with this project, follow these steps:
 1. Clone this repository to your local machine:
 
    ```shell
-   git clone git@git.epam.com:vasilisa_marachkouskaya/java-advanced-backend.git -b <branch>
+   git clone https://github.com/vmorochkovskaya/spring-boot-auto-configuration.git -b <branch>
 
 2. Navigate to the project directory:
 
