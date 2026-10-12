@@ -15,4 +15,18 @@ public class CarEntity {
     private String id;
     private String model;
     private String color;
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (!(obj instanceof CarEntity)) return false;
+
+        CarEntity other = (CarEntity) obj;
+        return model.equals(other.model);
+    }
+
+    @Override
+    public int hashCode() {
+        return model.hashCode();
+    }
 }

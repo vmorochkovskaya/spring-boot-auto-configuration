@@ -15,17 +15,24 @@ public class OwnDataSourceConfiguration {
     private String autoconfDbName;
 
     private static final String DB_URL = "jdbc:h2:mem:";
-    private static final String USERNAME = "SA111";
-    private static final String PASSWORD = "";
+    private static final String USERNAME = "admin";
+    private static final String PASSWORD = "admin123";
 
 
     @Bean
     public DataSource dataSource() {
+
+        if (autoconfDbName == null && autoconfDbName.isBlank()) {
+            throw new IllegalArgumentException(
+                    "Database name must not be empty");
+        }
+
         DataSourceBuilder<?> dataSourceBuilder = DataSourceBuilder.create();
         dataSourceBuilder.driverClassName(DRIVER_CLASS_NAME);
         dataSourceBuilder.url(DB_URL + autoconfDbName);
         dataSourceBuilder.username(USERNAME);
         dataSourceBuilder.password(PASSWORD);
+
         return dataSourceBuilder.build();
     }
 }
